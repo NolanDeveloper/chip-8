@@ -19,7 +19,8 @@ template <typename T>
 string hex(T val) {
     static const char * h = "0123456789abcdef";
     const auto len = sizeof(T) * 2;
-    string res(len, '\0');
+    string res;
+    res.resize(len);
     for (int i = 0; i < len; ++i)
         res[i] = h[(val >> (4 * (len - 1 - i))) & 0xf];
     return res;
